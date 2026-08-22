@@ -306,6 +306,35 @@ footer {
   overflow: hidden;
 }
 
+.instagram-official-frame {
+  align-items: flex-start;
+  display: flex;
+  justify-content: center;
+}
+
+.instagram-official-frame .instagram-media {
+  border: 0 !important;
+  margin: 0 !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  width: 100% !important;
+}
+
+.instagram-official-frame .instagram-media > a {
+  align-items: center;
+  color: var(--white);
+  display: flex;
+  font-family: var(--mono);
+  font-size: 9px;
+  height: 100%;
+  justify-content: center;
+  letter-spacing: 0.06em;
+  padding: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
 .playback-status {
   align-items: center;
   display: flex;
