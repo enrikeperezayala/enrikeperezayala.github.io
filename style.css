@@ -121,7 +121,7 @@ footer {
   font-size: clamp(78px, 14.2vw, 224px);
   font-weight: 600;
   letter-spacing: -0.09em;
-  line-height: 0.78;
+  line-height: 0.82;
   margin: auto 0;
   padding: clamp(48px, 7vw, 100px) 0 clamp(18px, 2.2vw, 34px);
   text-transform: uppercase;
@@ -150,23 +150,24 @@ footer {
   align-items: baseline;
   display: flex;
   gap: 0.14em;
+  line-height: 0.92;
   margin-left: 7.5vw;
   overflow: visible;
-  padding-top: 0.16em;
-  margin-top: -0.16em;
+  padding: 0.24em 0.06em 0.20em;
+  margin: -0.24em -0.06em -0.20em 7.5vw;
 }
 
 /* Cada máscara tiene aire superior para que el acento de PÉREZ nunca quede recortado. */
 .hero-surname-mask {
   display: inline-block;
-  overflow: hidden;
-  padding: 0.16em 0 0.12em;
-  margin: -0.16em 0 -0.12em;
+  overflow: visible;
+  padding: 0.20em 0.055em 0.18em;
+  margin: -0.20em -0.055em -0.18em;
 }
 
 .hero-title-line--outline .hero-title-text {
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+  color: var(--paper);
+  -webkit-text-fill-color: var(--paper);
   -webkit-text-stroke: clamp(1px, 0.12vw, 2px) var(--ink);
 }
 
@@ -238,13 +239,13 @@ footer {
 /* PÉREZ entra como un corte horizontal de montaje. */
 .intro-enabled .hero-title-text--perez {
   opacity: 0;
-  transform: translate3d(-108%, 0, 0);
+  transform: translate3d(-22vw, 0, 0);
 }
 
 /* AYALA aparece con un movimiento vertical independiente, más suspendido. */
 .intro-enabled .hero-title-text--ayala {
   opacity: 0;
-  transform: translate3d(0, 118%, 0) scale3d(1, 1.035, 1);
+  transform: translate3d(0, 52%, 0) scale3d(1, 1.018, 1);
 }
 
 .intro-enabled .hero-title::after {
@@ -277,31 +278,31 @@ footer {
 }
 
 .intro-enabled.intro-play .hero-title-text--perez {
-  animation: cinema-perez 980ms cubic-bezier(0.16, 1, 0.3, 1) 720ms both;
+  animation: cinema-perez 1550ms cubic-bezier(0.22, 1, 0.36, 1) 820ms both;
 }
 
 .intro-enabled.intro-play .hero-title-text--ayala {
-  animation: cinema-ayala 1120ms cubic-bezier(0.16, 1, 0.3, 1) 1080ms both;
+  animation: cinema-ayala 1700ms cubic-bezier(0.22, 1, 0.36, 1) 2050ms both;
 }
 
 .intro-enabled.intro-play .hero-title::before {
-  animation: cinema-scan 1580ms cubic-bezier(0.4, 0, 0.2, 1) 610ms both;
+  animation: cinema-scan 2850ms cubic-bezier(0.4, 0, 0.2, 1) 840ms both;
 }
 
 .intro-enabled.intro-play .hero-title::after {
-  animation: cinema-rule 820ms cubic-bezier(0.16, 1, 0.3, 1) 2020ms both;
+  animation: cinema-rule 900ms cubic-bezier(0.16, 1, 0.3, 1) 3780ms both;
 }
 
 .intro-enabled.intro-play .hero-afterline span {
-  animation: cinema-tagline 900ms cubic-bezier(0.16, 1, 0.3, 1) 2460ms both;
+  animation: cinema-tagline 1050ms cubic-bezier(0.16, 1, 0.3, 1) 4200ms both;
 }
 
 .intro-enabled.intro-play .hero-afterline::after {
-  animation: cinema-tagline-rule 760ms cubic-bezier(0.16, 1, 0.3, 1) 2760ms both;
+  animation: cinema-tagline-rule 850ms cubic-bezier(0.16, 1, 0.3, 1) 4580ms both;
 }
 
 .intro-enabled.intro-play .hero-bottom {
-  animation: cinema-bottom 820ms cubic-bezier(0.16, 1, 0.3, 1) 3080ms both;
+  animation: cinema-bottom 900ms cubic-bezier(0.16, 1, 0.3, 1) 5000ms both;
 }
 
 @keyframes cinema-index {
@@ -316,16 +317,16 @@ footer {
 }
 
 @keyframes cinema-perez {
-  0% { opacity: 0; transform: translate3d(-108%, 0, 0); }
-  14% { opacity: 1; }
-  72% { transform: translate3d(1.8%, 0, 0); }
+  0% { opacity: 0; transform: translate3d(-22vw, 0, 0); }
+  20% { opacity: 0.18; }
+  70% { opacity: 1; transform: translate3d(0.8%, 0, 0); }
   100% { opacity: 1; transform: translate3d(0, 0, 0); }
 }
 
 @keyframes cinema-ayala {
-  0% { opacity: 0; transform: translate3d(0, 118%, 0) scale3d(1, 1.035, 1); }
-  18% { opacity: 1; }
-  78% { transform: translate3d(0, -1.5%, 0) scale3d(1, 1.006, 1); }
+  0% { opacity: 0; transform: translate3d(0, 52%, 0) scale3d(1, 1.018, 1); }
+  22% { opacity: 0.14; }
+  76% { opacity: 1; transform: translate3d(0, -0.7%, 0) scale3d(1, 1.003, 1); }
   100% { opacity: 1; transform: translate3d(0, 0, 0) scale3d(1, 1, 1); }
 }
 
@@ -1462,6 +1463,9 @@ footer a:focus-visible {
   .hero-title-line--outline {
     flex-wrap: wrap;
     gap: 0 0.14em;
+    line-height: 0.96;
+    padding-top: 0.26em;
+    padding-bottom: 0.22em;
   }
 
   .hero-afterline {
