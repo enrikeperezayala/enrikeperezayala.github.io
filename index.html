@@ -28,7 +28,7 @@
       document.documentElement.classList.add("intro-enabled");
       window.__heroIntroFallback = window.setTimeout(() => {
         document.documentElement.classList.remove("intro-enabled", "intro-play");
-      }, 5000);
+      }, 6000);
     </script>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -47,9 +47,9 @@
 
       <section class="hero" id="inicio">
         <p class="hero-index">EPA / 2021—2026</p>
-        <h1>
-          <span>Enrique</span>
-          <span>Pérez Ayala</span>
+        <h1 class="hero-title" aria-label="Enrique Pérez Ayala">
+          <span class="hero-title-line hero-title-line--solid"><span class="hero-title-text">Enrique</span></span>
+          <span class="hero-title-line hero-title-line--outline"><span class="hero-title-text">Pérez Ayala</span></span>
         </h1>
         <p class="hero-afterline"><span>Observar desde más de un lugar.</span></p>
         <div class="hero-bottom">
