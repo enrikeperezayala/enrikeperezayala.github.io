@@ -1468,6 +1468,15 @@ footer a:focus-visible {
     padding-bottom: 0.22em;
   }
 
+  /* Móvil/iPhone: evita que Safari recorte el trazo exterior de la última letra. */
+  .hero-surname-mask {
+    overflow: visible;
+    padding-left: 0.045em;
+    padding-right: 0.045em;
+    margin-left: -0.045em;
+    margin-right: -0.045em;
+  }
+
   .hero-afterline {
     font-size: 10px;
     gap: 10px;
