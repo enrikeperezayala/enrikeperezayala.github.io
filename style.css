@@ -214,6 +214,7 @@ footer {
 
 .reel-heading h2,
 .works-intro h2,
+.communication-intro h2,
 .archive-title h3,
 .journey-lead,
 .contact-section h2 {
@@ -801,6 +802,167 @@ body.modal-open {
   width: max-content;
 }
 
+
+.communication-section {
+  background: var(--paper-soft);
+  color: var(--ink);
+  padding: clamp(82px, 11vw, 170px) clamp(20px, 3.5vw, 58px);
+}
+
+.communication-intro {
+  display: grid;
+  gap: 38px clamp(48px, 8vw, 150px);
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  margin-top: clamp(62px, 9vw, 140px);
+}
+
+.communication-intro h2 {
+  font-size: clamp(58px, 8.4vw, 136px);
+  letter-spacing: -0.05em;
+  line-height: 0.82;
+  margin: 0;
+  max-width: 1050px;
+}
+
+.communication-intro-copy {
+  align-self: end;
+  font-size: clamp(14px, 1.25vw, 18px);
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+.communication-intro-copy p {
+  margin: 0 0 20px;
+}
+
+.communication-intro-copy strong {
+  font-weight: 600;
+}
+
+.communication-roles {
+  border-top: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  margin-top: 36px !important;
+  padding-top: 12px;
+  text-transform: uppercase;
+}
+
+.communication-grid {
+  display: grid;
+  gap: clamp(28px, 4vw, 64px) clamp(22px, 3vw, 48px);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  margin-top: clamp(90px, 12vw, 180px);
+}
+
+.communication-card {
+  border-top: 1px solid var(--ink);
+  grid-column: span 6;
+  padding-top: 12px;
+}
+
+.communication-card:nth-child(n + 3) {
+  grid-column: span 4;
+}
+
+.communication-video-trigger {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: block;
+  font: inherit;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.communication-image {
+  aspect-ratio: 16 / 9;
+  background: var(--ink);
+  overflow: hidden;
+  position: relative;
+}
+
+.communication-image img {
+  filter: grayscale(1) contrast(1.04);
+  height: 100%;
+  object-fit: cover;
+  transition: filter 250ms ease, transform 350ms ease;
+  width: 100%;
+}
+
+.communication-video-trigger:hover .communication-image img,
+.communication-video-trigger:focus-visible .communication-image img {
+  filter: grayscale(0) contrast(1);
+  transform: scale(1.018);
+}
+
+.communication-play {
+  background: var(--paper-soft);
+  bottom: 0;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 8px;
+  padding: 11px 14px;
+  position: absolute;
+  right: 0;
+  text-transform: uppercase;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.communication-video-trigger:hover .communication-play,
+.communication-video-trigger:focus-visible .communication-play {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.communication-meta {
+  display: grid;
+  font-family: var(--mono);
+  font-size: 8px;
+  gap: 12px;
+  grid-template-columns: auto 1fr;
+  letter-spacing: 0.06em;
+  padding-top: 12px;
+  text-transform: uppercase;
+}
+
+.communication-meta > span:nth-child(2) {
+  color: var(--accent);
+  justify-self: end;
+}
+
+.communication-meta h3 {
+  font-family: var(--serif);
+  font-size: clamp(34px, 3.6vw, 60px);
+  font-weight: 400;
+  grid-column: 1 / -1;
+  letter-spacing: -0.035em;
+  line-height: 0.9;
+  margin: 18px 0 0;
+  text-transform: none;
+}
+
+.communication-channel {
+  border-bottom: 1px solid currentColor;
+  display: block;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  margin: clamp(70px, 9vw, 130px) 0 0 auto;
+  padding-bottom: 6px;
+  text-transform: uppercase;
+  width: max-content;
+}
+
+.communication-channel:hover,
+.communication-channel:focus-visible {
+  color: var(--accent);
+}
+
 .journey-section {
   background: var(--ink);
   color: var(--white);
@@ -983,9 +1145,14 @@ footer a:focus-visible {
   }
 
   .works-intro,
+  .communication-intro,
   .journey-copy,
   .archive-block {
     grid-template-columns: 1fr;
+  }
+
+  .communication-intro-copy {
+    max-width: 680px;
   }
 
   .works-intro > p {
@@ -1126,6 +1293,27 @@ footer a:focus-visible {
     grid-row: 3;
     justify-self: start;
     text-align: left;
+  }
+
+  .site-header nav {
+    gap: 10px;
+  }
+
+  .communication-grid {
+    display: block;
+  }
+
+  .communication-card,
+  .communication-card:nth-child(n + 3) {
+    margin-bottom: 62px;
+  }
+
+  .communication-meta h3 {
+    font-size: clamp(36px, 11vw, 58px);
+  }
+
+  .communication-channel {
+    margin-left: 0;
   }
 
   .journey-lead {
