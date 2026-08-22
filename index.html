@@ -24,6 +24,12 @@
     />
     <meta name="twitter:image" content="https://enrikeperezayala.github.io/og.png" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <script>
+      document.documentElement.classList.add("intro-enabled");
+      window.__heroIntroFallback = window.setTimeout(() => {
+        document.documentElement.classList.remove("intro-enabled", "intro-play");
+      }, 5000);
+    </script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -45,7 +51,7 @@
           <span>Enrique</span>
           <span>Pérez Ayala</span>
         </h1>
-        <p class="hero-afterline"><span>Mirar desde más de un lugar.</span></p>
+        <p class="hero-afterline"><span>Observar desde más de un lugar.</span></p>
         <div class="hero-bottom">
           <p class="hero-disciplines">
             Realización audiovisual / edición / cuerpo / dirección de procesos
