@@ -973,6 +973,42 @@ body.modal-open {
   color: var(--white);
 }
 
+.journey-portrait {
+  align-items: end;
+  display: grid;
+  gap: clamp(24px, 4vw, 72px);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  margin-top: clamp(54px, 7vw, 110px);
+}
+
+.journey-portrait-label {
+  align-self: end;
+  border-top: 1px solid var(--line-inverse);
+  color: var(--paper-soft);
+  font-family: var(--mono);
+  font-size: 9px;
+  grid-column: 1 / span 3;
+  letter-spacing: 0.08em;
+  margin: 0;
+  padding-top: 10px;
+  text-transform: uppercase;
+}
+
+.journey-portrait-image {
+  display: flex;
+  grid-column: 4 / -1;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.journey-portrait-image img {
+  height: auto;
+  max-height: min(82svh, 940px);
+  max-width: 100%;
+  object-fit: contain;
+  width: auto;
+}
+
 .journey-copy {
   display: grid;
   gap: clamp(50px, 9vw, 170px);
@@ -1314,6 +1350,20 @@ footer a:focus-visible {
 
   .communication-channel {
     margin-left: 0;
+  }
+
+  .journey-portrait {
+    display: block;
+    margin-top: 44px;
+  }
+
+  .journey-portrait-label {
+    margin-bottom: 18px;
+  }
+
+  .journey-portrait-image img {
+    max-height: none;
+    width: 100%;
   }
 
   .journey-lead {
