@@ -175,7 +175,7 @@ instagramEmbedTriggers.forEach((trigger) => {
   let loaded = false;
 
   const loadInstagramEmbed = () => {
-    if (loaded) return;
+    if (loaded || !trigger.isConnected) return;
     loaded = true;
 
     const src = trigger.dataset.instagramEmbed;
@@ -184,12 +184,31 @@ instagramEmbedTriggers.forEach((trigger) => {
 
     iframe.src = src;
     iframe.title = `${title}, reproducción integrada`;
-    iframe.loading = "lazy";
+    iframe.loading = "eager";
     iframe.allow = "autoplay; encrypted-media; picture-in-picture";
     iframe.referrerPolicy = "strict-origin-when-cross-origin";
 
     trigger.replaceWith(iframe);
   };
 
-  trigger.addEventListener("click", loadInstagramEmbed, { once: true });
+  // Mantiene Instagram fuera de la carga inicial, pero lo prepara justo antes
+  // de que el usuario llegue a la pieza. Así, al verla, solo necesita un clic
+  // sobre el reproductor para iniciar el vídeo.
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          observer.disconnect();
+          loadInstagramEmbed();
+        }
+      },
+      { rootMargin: "700px 0px", threshold: 0.01 }
+    );
+
+    observer.observe(trigger);
+  } else {
+    // Compatibilidad para navegadores antiguos: se conserva el comportamiento
+    // anterior y se carga al tocar la portada.
+    trigger.addEventListener("click", loadInstagramEmbed, { once: true });
+  }
 });
