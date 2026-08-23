@@ -24,18 +24,27 @@ startHeroIntro();
 const reelFacade = document.querySelector("[data-reel-id]");
 
 if (reelFacade) {
-  reelFacade.addEventListener("click", () => {
+  let reelLoaded = false;
+
+  const loadReel = () => {
+    if (reelLoaded) return;
+    reelLoaded = true;
+
     const videoId = reelFacade.dataset.reelId;
     const iframe = document.createElement("iframe");
 
-    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+    // playsinline mejora la reproducción inline en iOS y es inocuo en Android/desktop.
+    // El resto de atributos usan APIs estándar compatibles con navegadores modernos.
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1&controls=1&rel=0`;
     iframe.title = "Reel audiovisual de Enrique Pérez Ayala";
     iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
     iframe.referrerPolicy = "strict-origin-when-cross-origin";
     iframe.allowFullscreen = true;
 
     reelFacade.replaceWith(iframe);
-  }, { once: true });
+  };
+
+  reelFacade.addEventListener("click", loadReel, { once: true });
 }
 
 const modal = document.querySelector("#video-modal");

@@ -451,10 +451,28 @@ footer {
   aspect-ratio: 16 / 9;
   background: #000;
   overflow: hidden;
+  position: relative;
   width: 100%;
 }
 
-.video-frame iframe,
+.video-frame iframe {
+  border: 0;
+  display: block;
+  height: 100%;
+  inset: 0;
+  position: absolute;
+  width: 100%;
+}
+
+/* Fallback multiplataforma para navegadores que no soporten aspect-ratio.
+   Los navegadores modernos usarán aspect-ratio; el fallback no altera su diseño. */
+@supports not (aspect-ratio: 16 / 9) {
+  .video-frame {
+    height: 0;
+    padding-top: 56.25%;
+  }
+}
+
 .instagram-frame iframe {
   border: 0;
   height: 100%;
@@ -463,6 +481,7 @@ footer {
 
 /* Reel ligero: YouTube no descarga su reproductor hasta que la persona pulsa. */
 .reel-facade {
+  -webkit-tap-highlight-color: transparent;
   appearance: none;
   background: #000;
   border: 0;
@@ -470,15 +489,19 @@ footer {
   cursor: pointer;
   display: block;
   height: 100%;
+  inset: 0;
   overflow: hidden;
   padding: 0;
-  position: relative;
+  position: absolute;
+  touch-action: manipulation;
   width: 100%;
 }
 
 .reel-facade img {
   height: 100%;
+  inset: 0;
   object-fit: cover;
+  position: absolute;
   transition: transform 350ms ease, filter 250ms ease;
   width: 100%;
 }
