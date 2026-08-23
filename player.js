@@ -167,3 +167,29 @@ document.addEventListener("keydown", (event) => {
     }
   }
 });
+
+
+const instagramEmbedTriggers = document.querySelectorAll("[data-instagram-embed]");
+
+instagramEmbedTriggers.forEach((trigger) => {
+  let loaded = false;
+
+  const loadInstagramEmbed = () => {
+    if (loaded) return;
+    loaded = true;
+
+    const src = trigger.dataset.instagramEmbed;
+    const title = trigger.dataset.videoTitle || "Publicación de Instagram";
+    const iframe = document.createElement("iframe");
+
+    iframe.src = src;
+    iframe.title = `${title}, reproducción integrada`;
+    iframe.loading = "lazy";
+    iframe.allow = "autoplay; encrypted-media; picture-in-picture";
+    iframe.referrerPolicy = "strict-origin-when-cross-origin";
+
+    trigger.replaceWith(iframe);
+  };
+
+  trigger.addEventListener("click", loadInstagramEmbed, { once: true });
+});
