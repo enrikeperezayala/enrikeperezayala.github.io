@@ -123,14 +123,22 @@
           <p>Imagen en movimiento / selección</p>
         </div>
         <div class="video-frame">
-          <iframe
-            loading="lazy"
-            src="https://www.youtube.com/embed/6gHan2y4JMU?rel=0"
-            title="Reel audiovisual de Enrique Pérez Ayala"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
+          <button
+            class="reel-facade"
+            type="button"
+            data-reel-id="6gHan2y4JMU"
+            aria-label="Reproducir reel audiovisual de Enrique Pérez Ayala"
+          >
+            <img
+              src="https://i.ytimg.com/vi/6gHan2y4JMU/maxresdefault.jpg"
+              alt="Fotograma del reel audiovisual de Enrique Pérez Ayala"
+              loading="lazy"
+              decoding="async"
+              width="1280"
+              height="720"
+            />
+            <span class="reel-facade-play">Reproducir reel ▶</span>
+          </button>
         </div>
       </section>
 
