@@ -2034,4 +2034,37 @@ footer a:focus-visible {
       );
   }
 }
-\n\n/* PASO 10F — RECORRIDO: imagen horizontal ya integrada (solo escritorio) */\n@media (min-width: 961px) {\n  .journey-section {\n    padding-top: clamp(62px, 5.6vw, 92px);\n  }\n\n  .journey-portrait {\n    align-items: start;\n    column-gap: 0;\n    grid-template-rows: auto auto;\n    margin-top: clamp(18px, 1.8vw, 28px);\n    row-gap: clamp(10px, 1.1vw, 18px);\n  }\n\n  .journey-portrait-label {\n    align-self: start;\n    grid-column: 1 / span 3;\n    grid-row: 1;\n    margin-top: 0;\n  }\n\n  .journey-portrait-image {\n    display: block;\n    grid-column: 1 / -1;\n    grid-row: 2;\n    justify-self: center;\n    margin-top: 0;\n    overflow: visible;\n    position: relative;\n    width: min(88vw, 1420px);\n  }\n\n  .journey-portrait-image picture {\n    display: block;\n    width: 100%;\n  }\n\n  .journey-portrait-image img {\n    display: block;\n    height: auto;\n    max-height: none;\n    max-width: 100%;\n    object-fit: contain;\n    width: 100%;\n    -webkit-mask-image: none;\n    mask-image: none;\n  }\n\n  .journey-portrait-image::after {\n    content: none;\n    display: none;\n  }\n\n  .journey-copy {\n    margin-top: clamp(22px, 2.5vw, 40px);\n  }\n}\n
+
+
+/* PASO 10G — RECORRIDO: escala y posición final del retrato horizontal (solo escritorio) */
+@media (min-width: 961px) {
+  .journey-portrait-image {
+    margin-top: -100px;
+    width: min(60vw, 1000px);
+  }
+
+  .journey-portrait-image picture {
+    display: block;
+    width: 100%;
+  }
+
+  .journey-portrait-image img {
+    display: block;
+    height: auto;
+    max-height: none;
+    max-width: 100%;
+    object-fit: contain;
+    width: 100%;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .journey-portrait-image::after {
+    content: none;
+    display: none;
+  }
+
+  .journey-copy {
+    margin-top: 0;
+  }
+}
