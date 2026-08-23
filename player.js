@@ -18,7 +18,46 @@ function startHeroIntro() {
   }, 4300);
 }
 
-startHeroIntro();
+function bootHeroIntroWhenTypographyIsReady() {
+  const fontStylesheet = document.querySelector("#portfolio-fonts");
+  let started = false;
+
+  const startOnce = () => {
+    if (started) return;
+    started = true;
+
+    const start = () => startHeroIntro();
+
+    if (!document.fonts || typeof document.fonts.load !== "function") {
+      start();
+      return;
+    }
+
+    // Espera brevemente a las tres familias visibles en la portada para evitar
+    // que la tipografía cambie a mitad de la secuencia. El límite mantiene
+    // la apertura ágil incluso con una conexión lenta.
+    const heroFonts = Promise.all([
+      document.fonts.load('600 64px "Manrope"', "ENRIQUE PÉREZ AYALA"),
+      document.fonts.load('400 32px "Instrument Serif"', "Trabajo entre disciplinas"),
+      document.fonts.load('400 10px "IBM Plex Mono"', "EPA OBSERVAR")
+    ]);
+
+    Promise.race([
+      heroFonts,
+      new Promise((resolve) => window.setTimeout(resolve, 900))
+    ]).then(start, start);
+  };
+
+  if (!fontStylesheet || fontStylesheet.dataset.ready === "true") {
+    startOnce();
+    return;
+  }
+
+  fontStylesheet.addEventListener("load", startOnce, { once: true });
+  window.setTimeout(startOnce, 1200);
+}
+
+bootHeroIntroWhenTypographyIsReady();
 
 
 const reelFacade = document.querySelector("[data-reel-id]");
