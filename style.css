@@ -1941,3 +1941,56 @@ footer a:focus-visible {
     margin-top: clamp(40px, 5vw, 76px);
   }
 }
+
+/* PASO 10D — RECORRIDO: menos aire superior y retrato realmente fundido (solo escritorio) */
+@media (min-width: 961px) {
+  .journey-section {
+    padding-top: clamp(72px, 6.6vw, 108px);
+  }
+
+  .journey-portrait {
+    margin-top: clamp(14px, 1.6vw, 24px);
+  }
+
+  .journey-portrait-label {
+    margin-top: 0;
+  }
+
+  .journey-portrait-image {
+    grid-column: 3 / -2;
+    justify-self: center;
+    margin-top: -34px;
+    overflow: hidden;
+    width: min(51vw, 840px);
+  }
+
+  .journey-portrait-image img {
+    display: block;
+    max-height: min(84svh, 930px);
+    max-width: 100%;
+    width: 100%;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .journey-portrait-image::after {
+    background: radial-gradient(
+      ellipse 72% 80% at 54% 53%,
+      transparent 0%,
+      transparent 42%,
+      rgba(17, 17, 15, 0.10) 52%,
+      rgba(17, 17, 15, 0.30) 64%,
+      rgba(17, 17, 15, 0.62) 78%,
+      rgba(17, 17, 15, 0.90) 91%,
+      var(--ink) 100%
+    );
+    content: "";
+    inset: -2px;
+    pointer-events: none;
+    position: absolute;
+  }
+
+  .journey-copy {
+    margin-top: clamp(28px, 3.4vw, 52px);
+  }
+}
