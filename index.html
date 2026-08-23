@@ -590,13 +590,19 @@
         <div class="journey-portrait" aria-label="Retrato escénico de Enrique Pérez Ayala">
           <p class="journey-portrait-label">Imagen / cuerpo / escena</p>
           <div class="journey-portrait-image">
-            <img
-              src="enrique-recorrido.webp"
-              alt="Enrique Pérez Ayala en una composición escénica oscura con tejido en movimiento"
-              loading="lazy"
-              decoding="async"
-              decoding="async"
-            />
+            <picture>
+              <source
+                media="(min-width: 961px)"
+                srcset="enrique-recorrido-horizontal.webp"
+                type="image/webp"
+              />
+              <img
+                src="enrique-recorrido.webp"
+                alt="Enrique Pérez Ayala en una composición escénica oscura con tejido en movimiento"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
         </div>
 
