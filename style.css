@@ -1994,3 +1994,43 @@ footer a:focus-visible {
     margin-top: clamp(28px, 3.4vw, 52px);
   }
 }
+
+/* PASO 10E — RECORRIDO: microajuste final de integración y ritmo (solo escritorio) */
+@media (min-width: 961px) {
+  .journey-portrait {
+    margin-top: 0;
+  }
+
+  .journey-portrait-image {
+    margin-top: -72px;
+    width: min(53vw, 880px);
+  }
+
+  .journey-portrait-image::after {
+    background:
+      linear-gradient(
+        to bottom,
+        var(--ink) 0%,
+        rgba(17, 17, 15, 0.96) 3%,
+        rgba(17, 17, 15, 0.72) 8%,
+        rgba(17, 17, 15, 0.30) 14%,
+        transparent 22%,
+        transparent 84%,
+        rgba(17, 17, 15, 0.35) 92%,
+        rgba(17, 17, 15, 0.82) 97%,
+        var(--ink) 100%
+      ),
+      linear-gradient(
+        to right,
+        var(--ink) 0%,
+        rgba(17, 17, 15, 0.94) 3%,
+        rgba(17, 17, 15, 0.62) 9%,
+        rgba(17, 17, 15, 0.20) 15%,
+        transparent 23%,
+        transparent 80%,
+        rgba(17, 17, 15, 0.28) 88%,
+        rgba(17, 17, 15, 0.72) 95%,
+        var(--ink) 100%
+      );
+  }
+}
