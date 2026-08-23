@@ -1240,7 +1240,7 @@ body.modal-open {
 }
 
 .communication-meta > span:nth-child(2) {
-  color: var(--accent);
+  color: #56534e;
   justify-self: end;
 }
 
