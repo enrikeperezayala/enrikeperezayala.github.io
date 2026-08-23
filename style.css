@@ -504,6 +504,13 @@ footer {
   width: 100%;
 }
 
+.instagram-cover {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
 /* Reel ligero: YouTube no descarga su reproductor hasta que la persona pulsa. */
 .reel-facade {
   -webkit-tap-highlight-color: transparent;
