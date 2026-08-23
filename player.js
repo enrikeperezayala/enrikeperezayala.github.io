@@ -95,6 +95,14 @@ const videoTriggers = document.querySelectorAll("[data-youtube-id]");
 
 let lastTrigger = null;
 
+function getModalFocusableElements() {
+  return Array.from(
+    modal.querySelectorAll(
+      'button:not([disabled]), a[href], iframe, [tabindex]:not([tabindex="-1"])'
+    )
+  ).filter((element) => !element.hasAttribute("hidden"));
+}
+
 function openVideo(trigger) {
   const videoId = trigger.dataset.youtubeId;
   const title = trigger.dataset.videoTitle || "Pieza audiovisual";
@@ -136,7 +144,26 @@ closeButtons.forEach((button) => {
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && !modal.hidden) {
+  if (modal.hidden) return;
+
+  if (event.key === "Escape") {
     closeVideo();
+    return;
+  }
+
+  if (event.key === "Tab") {
+    const focusable = getModalFocusableElements();
+    if (!focusable.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
   }
 });

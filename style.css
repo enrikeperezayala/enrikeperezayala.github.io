@@ -3,7 +3,7 @@
   --paper: #f3f0e8;
   --paper-soft: #d8d5ce;
   --white: #fbfaf5;
-  --accent: #74716b;
+  --accent: #68655f;
   --line: rgba(18, 18, 18, 0.25);
   --line-inverse: rgba(250, 249, 244, 0.28);
   --mono: "IBM Plex Mono", monospace;
@@ -36,6 +36,31 @@ a {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* Accesibilidad: visible solo al navegar con teclado. */
+.skip-link {
+  background: var(--ink);
+  color: var(--white);
+  font-family: var(--mono);
+  font-size: 10px;
+  left: 16px;
+  padding: 10px 12px;
+  position: fixed;
+  top: 12px;
+  transform: translateY(-160%);
+  transition: transform 140ms ease;
+  z-index: 300;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
 }
 
 img {
@@ -681,7 +706,7 @@ footer {
 }
 
 .project-caption small {
-  color: rgba(18, 18, 18, 0.58);
+  color: rgba(18, 18, 18, 0.62);
   font-size: 8px;
   margin-top: 6px;
 }
@@ -790,7 +815,7 @@ footer {
 }
 
 .film-meta p {
-  color: rgba(18, 18, 18, 0.58);
+  color: rgba(18, 18, 18, 0.62);
   margin: 0;
 }
 
@@ -1410,7 +1435,7 @@ body.modal-open {
 }
 
 .contact-context {
-  color: rgba(18, 18, 18, 0.62);
+  color: rgba(18, 18, 18, 0.66);
   display: flex;
   font-family: var(--mono);
   font-size: 9px;
