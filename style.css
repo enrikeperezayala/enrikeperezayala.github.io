@@ -1430,7 +1430,8 @@ body.modal-open {
 .contact-section {
   background: var(--paper-soft);
   color: var(--ink);
-  padding: clamp(84px, 10vw, 150px) clamp(20px, 3.5vw, 58px);
+  /* Contacto: ritmo más compacto para que el CTA y su regla final entren mejor en pantalla. */
+  padding: clamp(72px, 7vw, 110px) clamp(20px, 3.5vw, 58px) clamp(64px, 6vw, 90px);
 }
 
 .contact-kicker {
@@ -1456,7 +1457,8 @@ body.modal-open {
   font-size: clamp(72px, 13vw, 205px);
   letter-spacing: -0.055em;
   line-height: 0.72;
-  margin: clamp(80px, 10vw, 160px) 0 clamp(70px, 9vw, 140px);
+  /* Sube el titular y, sobre todo, acerca el email sin perder aire editorial. */
+  margin: clamp(64px, 6vw, 100px) 0 clamp(44px, 4vw, 66px);
 }
 
 .contact-section h2 em {
@@ -1776,10 +1778,20 @@ footer a:focus-visible {
     margin-top: 46px;
   }
 
+  .contact-section {
+    padding-top: 56px;
+    padding-bottom: 72px;
+  }
+
   .contact-context {
     align-items: flex-start;
     flex-direction: column;
     gap: 7px;
+  }
+
+  .contact-section h2 {
+    margin-top: 62px;
+    margin-bottom: 52px;
   }
 
   .contact-section h2 em {
